@@ -668,6 +668,7 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
   /usr/include/c++/9/bits/stl_tree.h \
   /usr/include/c++/9/bits/stl_uninitialized.h \
   /usr/include/c++/9/bits/stl_vector.h \
+  /usr/include/c++/9/bits/stream_iterator.h \
   /usr/include/c++/9/bits/streambuf.tcc \
   /usr/include/c++/9/bits/streambuf_iterator.h \
   /usr/include/c++/9/bits/stringfwd.h \
@@ -713,6 +714,7 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
   /usr/include/c++/9/iosfwd \
   /usr/include/c++/9/iostream \
   /usr/include/c++/9/istream \
+  /usr/include/c++/9/iterator \
   /usr/include/c++/9/limits \
   /usr/include/c++/9/list \
   /usr/include/c++/9/locale \
@@ -851,6 +853,38 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/include/yaml-cpp/binary.h \
+  /usr/include/yaml-cpp/dll.h \
+  /usr/include/yaml-cpp/emitter.h \
+  /usr/include/yaml-cpp/emitterdef.h \
+  /usr/include/yaml-cpp/emittermanip.h \
+  /usr/include/yaml-cpp/emitterstyle.h \
+  /usr/include/yaml-cpp/exceptions.h \
+  /usr/include/yaml-cpp/mark.h \
+  /usr/include/yaml-cpp/node/convert.h \
+  /usr/include/yaml-cpp/node/detail/bool_type.h \
+  /usr/include/yaml-cpp/node/detail/impl.h \
+  /usr/include/yaml-cpp/node/detail/iterator.h \
+  /usr/include/yaml-cpp/node/detail/iterator_fwd.h \
+  /usr/include/yaml-cpp/node/detail/memory.h \
+  /usr/include/yaml-cpp/node/detail/node.h \
+  /usr/include/yaml-cpp/node/detail/node_data.h \
+  /usr/include/yaml-cpp/node/detail/node_iterator.h \
+  /usr/include/yaml-cpp/node/detail/node_ref.h \
+  /usr/include/yaml-cpp/node/emit.h \
+  /usr/include/yaml-cpp/node/impl.h \
+  /usr/include/yaml-cpp/node/iterator.h \
+  /usr/include/yaml-cpp/node/node.h \
+  /usr/include/yaml-cpp/node/parse.h \
+  /usr/include/yaml-cpp/node/ptr.h \
+  /usr/include/yaml-cpp/node/type.h \
+  /usr/include/yaml-cpp/noncopyable.h \
+  /usr/include/yaml-cpp/null.h \
+  /usr/include/yaml-cpp/ostream_wrapper.h \
+  /usr/include/yaml-cpp/parser.h \
+  /usr/include/yaml-cpp/stlemitter.h \
+  /usr/include/yaml-cpp/traits.h \
+  /usr/include/yaml-cpp/yaml.h \
   /usr/lib/gcc/x86_64-linux-gnu/9/include/emmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/9/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h \
@@ -970,6 +1004,52 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
   /usr/local/include/opencv4/opencv2/xfeatures2d/nonfree.hpp
 
 
+/usr/include/yaml-cpp/yaml.h:
+
+/usr/include/yaml-cpp/traits.h:
+
+/usr/include/yaml-cpp/stlemitter.h:
+
+/usr/include/yaml-cpp/parser.h:
+
+/usr/include/yaml-cpp/null.h:
+
+/usr/include/yaml-cpp/node/type.h:
+
+/usr/include/yaml-cpp/node/parse.h:
+
+/usr/include/yaml-cpp/node/node.h:
+
+/usr/include/yaml-cpp/node/iterator.h:
+
+/usr/include/yaml-cpp/node/emit.h:
+
+/usr/include/yaml-cpp/node/detail/memory.h:
+
+/usr/include/yaml-cpp/node/detail/node.h:
+
+/usr/include/yaml-cpp/node/detail/iterator_fwd.h:
+
+/usr/include/yaml-cpp/node/detail/iterator.h:
+
+/usr/include/yaml-cpp/node/detail/impl.h:
+
+/usr/include/yaml-cpp/exceptions.h:
+
+/usr/include/yaml-cpp/emitterstyle.h:
+
+/usr/include/yaml-cpp/emittermanip.h:
+
+/usr/include/yaml-cpp/emitter.h:
+
+/usr/include/yaml-cpp/dll.h:
+
+/usr/include/yaml-cpp/binary.h:
+
+/usr/include/c++/9/iterator:
+
+/usr/include/c++/9/bits/stream_iterator.h:
+
 /usr/local/include/opencv4/opencv2/xfeatures2d.hpp:
 
 /home/doer/Desktop/gps_denied_ws/vio_project/src/main.cpp:
@@ -1010,6 +1090,8 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
 
 /usr/local/include/opencv4/opencv2/objdetect/aruco_detector.hpp:
 
+/usr/include/yaml-cpp/node/convert.h:
+
 /usr/local/include/opencv4/opencv2/objdetect/aruco_board.hpp:
 
 /usr/local/include/opencv4/opencv2/objdetect.hpp:
@@ -1029,6 +1111,8 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
 /usr/local/include/opencv4/opencv2/flann/saving.h:
 
 /usr/local/include/opencv4/opencv2/flann/params.h:
+
+/usr/include/yaml-cpp/node/impl.h:
 
 /usr/local/include/opencv4/opencv2/flann/miniflann.hpp:
 
@@ -1086,6 +1170,8 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
 
 /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp:
 
+/usr/include/yaml-cpp/node/detail/node_data.h:
+
 /usr/local/include/opencv4/opencv2/core/version.hpp:
 
 /usr/local/include/opencv4/opencv2/core/utility.hpp:
@@ -1093,6 +1179,8 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
 /usr/local/include/opencv4/opencv2/core/traits.hpp:
 
 /usr/local/include/opencv4/opencv2/core/persistence.hpp:
+
+/usr/include/yaml-cpp/noncopyable.h:
 
 /usr/local/include/opencv4/opencv2/core/ovx.hpp:
 
@@ -1162,6 +1250,8 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
+/usr/include/yaml-cpp/ostream_wrapper.h:
+
 /usr/local/include/opencv4/opencv2/core/fast_math.hpp:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
@@ -1217,6 +1307,8 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
 /usr/include/c++/9/bits/ptr_traits.h:
 
 /usr/include/c++/9/bits/streambuf.tcc:
+
+/usr/include/yaml-cpp/emitterdef.h:
 
 /usr/include/c++/9/fstream:
 
@@ -1325,6 +1417,8 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
 /usr/include/c++/9/ios:
+
+/usr/include/yaml-cpp/mark.h:
 
 /usr/include/c++/9/math.h:
 
@@ -1558,9 +1652,13 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
 
 /usr/include/c++/9/istream:
 
+/usr/include/yaml-cpp/node/detail/node_ref.h:
+
 /usr/include/c++/9/locale:
 
 /usr/include/c++/9/vector:
+
+/usr/include/yaml-cpp/node/detail/bool_type.h:
 
 /usr/include/c++/9/cerrno:
 
@@ -1696,9 +1794,13 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
+/usr/include/yaml-cpp/node/ptr.h:
+
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
 /usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/yaml-cpp/node/detail/node_iterator.h:
 
 /usr/include/c++/9/bits/atomic_lockfree_defines.h:
 

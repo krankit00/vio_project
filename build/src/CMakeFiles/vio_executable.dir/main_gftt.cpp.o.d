@@ -1,5 +1,5 @@
-src/CMakeFiles/vio_executable.dir/main.cpp.o: \
- /home/doer/Desktop/gps_denied_ws/vio_project/src/main.cpp \
+src/CMakeFiles/vio_executable.dir/main_gftt.cpp.o: \
+ /home/doer/Desktop/gps_denied_ws/vio_project/src/main_gftt.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -327,8 +327,6 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: \
  /usr/local/include/opencv4/opencv2/video.hpp \
  /usr/local/include/opencv4/opencv2/video/tracking.hpp \
  /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
- /usr/local/include/opencv4/opencv2/xfeatures2d.hpp \
- /usr/local/include/opencv4/opencv2/xfeatures2d/nonfree.hpp \
  /home/doer/Desktop/gps_denied_ws/vio_project/src/camera.hpp \
  /home/doer/Desktop/gps_denied_ws/vio_project/src/logger.hpp \
  /usr/include/c++/9/fstream \

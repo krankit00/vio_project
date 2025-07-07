@@ -164,6 +164,7 @@ src/vio_executable: /usr/local/lib/libopencv_wechat_qrcode.so.4.8.0
 src/vio_executable: /usr/local/lib/libopencv_xobjdetect.so.4.8.0
 src/vio_executable: /usr/local/lib/libopencv_xphoto.so.4.8.0
 src/vio_executable: /usr/local/lib/libopencv_xfeatures2d.so.4.8.0
+src/vio_executable: /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.6.2
 src/vio_executable: /usr/local/lib/libopencv_shape.so.4.8.0
 src/vio_executable: /usr/local/lib/libopencv_highgui.so.4.8.0
 src/vio_executable: /usr/local/lib/libopencv_datasets.so.4.8.0

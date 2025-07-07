@@ -346,6 +346,9 @@ VIO_Project_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 VIO_Project_SOURCE_DIR:STATIC=/home/doer/Desktop/gps_denied_ws/vio_project
 
+//The directory containing a CMake configuration file for yaml-cpp.
+yaml-cpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp
+
 
 ########################
 # INTERNAL cache entries
