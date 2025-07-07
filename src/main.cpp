@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip> // for std::setprecision
 #include <opencv2/opencv.hpp>
 #include <opencv2/xfeatures2d.hpp>
 #include "camera.hpp"
@@ -8,7 +9,21 @@
 #include <deque>
 #include "logger.hpp"
 #include <chrono>
+#include <opencv2/core.hpp>
+#include <cmath>
 
+// Converts a 3x3 rotation matrix to roll, pitch, yaw (in radians)
+void rotationMatrixToRPY(const cv::Mat& R, double& roll, double& pitch, double& yaw) {
+    pitch = std::asin(-R.at<double>(2,0));
+
+    if (std::cos(pitch) > 1e-6) { // avoid gimbal lock
+        roll = std::atan2(R.at<double>(2,1), R.at<double>(2,2));
+        yaw  = std::atan2(R.at<double>(1,0), R.at<double>(0,0));
+    } else {
+        roll = 0;
+        yaw = std::atan2(-R.at<double>(0,1), R.at<double>(1,1));
+    }
+}
 int main() {
     std::cout << "Starting VIO Project - Feature Tracking with Trails" << std::endl;
 
@@ -35,8 +50,9 @@ int main() {
     const double RANSAC_THRESHOLD = 1.0;
 
     const int max_display_width = 1280;
-    const int sift_process_width = 640;
-    const int sift_process_height = 480;
+    const int downscale_factor = 4;
+    const int sift_process_width = cam.getWidth()/downscale_factor;
+    const int sift_process_height = cam.getHeight()/downscale_factor;
 
     // --- ADDED: Camera Intrinsics (Pinhole Model) ---
     // NOTE: These are assumed values. For accurate results, you should calibrate your camera.
@@ -131,9 +147,20 @@ int main() {
             first_frame = false;
         }
 
-        // --- ADDED: Print Pose Information to Terminal ---
-        // Using .t() to transpose the 3x1 vector to a 1x3 for cleaner printing.
-        std::cout << "Translation: " << t_global.t() << " Rotation (first row): " << R_global.row(0) << std::endl;
+        // RPY Conversion
+        double roll, pitch, yaw;
+        rotationMatrixToRPY(R_global, roll, pitch, yaw);
+
+        // Printing Translation and Rotation
+        std::cout << std::fixed << std::setprecision(2);
+        std::cout << "Translation: [" 
+              << t_global.at<double>(0) << ", "
+              << t_global.at<double>(1) << ", "
+              << t_global.at<double>(2) << "]  ";
+
+        std::cout << "Roll: " << roll << " rad, "
+              << "Pitch: " << pitch << " rad, "
+              << "Yaw: " << yaw << " rad" << std::endl;
         
         // Drawing and display logic remains the same...
         cv::Mat color_for_drawing;
