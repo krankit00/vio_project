@@ -1,0 +1,23 @@
+# Camera Settings
+camera_index: 0
+resolution:
+  width: 1280
+  height: 720
+fps: 30
+
+# Processing Settings
+sift_process_resolution:
+  width: 640
+  height: 480
+
+# Feature Tracking
+max_sift_features: 500
+redetection_threshold_ratio: 0.5 # Redetect if tracked features drop below max_sift_features * this ratio
+min_feature_distance: 10         # Min pixels between new features and existing ones
+
+# RANSAC Outlier Rejection
+use_ransac: true
+ransac_threshold: 1.0 # RANSAC threshold for findFundamentalMat (in pixels)
+
+# Visualization
+max_trail_length: 15
