@@ -96,12 +96,12 @@ src/clean: src/CMakeFiles/vio_executable.dir/clean
 src/CMakeFiles/vio_executable.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/vio_executable.dir/build.make src/CMakeFiles/vio_executable.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/vio_executable.dir/build.make src/CMakeFiles/vio_executable.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/doer/Desktop/gps_denied_ws/vio_project/build/CMakeFiles --progress-num=1,2,3 "Built target vio_executable"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/doer/Desktop/gps_denied_ws/vio_project/build/CMakeFiles --progress-num=1,2,3,4 "Built target vio_executable"
 .PHONY : src/CMakeFiles/vio_executable.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/vio_executable.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/doer/Desktop/gps_denied_ws/vio_project/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/doer/Desktop/gps_denied_ws/vio_project/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/vio_executable.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/doer/Desktop/gps_denied_ws/vio_project/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/vio_executable.dir/rule

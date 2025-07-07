@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/doer/Desktop/gps_denied_ws/vio_project/src/camera.cpp" "src/CMakeFiles/vio_executable.dir/camera.cpp.o" "gcc" "src/CMakeFiles/vio_executable.dir/camera.cpp.o.d"
+  "/home/doer/Desktop/gps_denied_ws/vio_project/src/logger.cpp" "src/CMakeFiles/vio_executable.dir/logger.cpp.o" "gcc" "src/CMakeFiles/vio_executable.dir/logger.cpp.o.d"
   "/home/doer/Desktop/gps_denied_ws/vio_project/src/main.cpp" "src/CMakeFiles/vio_executable.dir/main.cpp.o" "gcc" "src/CMakeFiles/vio_executable.dir/main.cpp.o.d"
   )
 

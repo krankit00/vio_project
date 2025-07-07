@@ -1,29 +1,19 @@
-# Minimum required CMake version
+# 
 cmake_minimum_required(VERSION 3.10)
-
-# Project name
 project(VIO_Project LANGUAGES CXX)
 
-# Set C++ standard
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Add a source directory (where your C++ files will be)
-# We'll create a 'src' directory for our source code
-add_subdirectory(src)
+# Find packages at the top level so they are available to all subdirectories
+find_package(OpenCV REQUIRED)
 
-# --- NEW: Find OpenCV ---
-find_package(OpenCV REQUIRED) # REQUIRED means CMake will fail if OpenCV is not found
+# Add the external library FIRST to make its target available
+# Add the source directory LAST, now it can find the yaml-cpp target
+add_subdirectory(src) # <--- MOVED DOWN
 
-# If you get errors about OpenCV not being found, you might need to
-# set OpenCV_DIR to the directory containing OpenCVConfig.cmake or opencv-config.cmake
-# Example (uncomment and adjust if needed):
-# set(OpenCV_DIR "/path/to/your/opencv/build")
-# find_package(OpenCV REQUIRED)
-# -------------------------
-
-# Set output directories for executables and libraries
+# Set output directories for all targets in the project
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)

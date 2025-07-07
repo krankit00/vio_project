@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/doer/Desktop/gps_denied_ws/vio_project/src -isystem /usr/local/include/opencv4
 
-CXX_FLAGS = -std=c++17
+CXX_FLAGS = -std=c++11
 

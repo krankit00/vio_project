@@ -154,6 +154,30 @@ camera.cpp.s:
 	cd /home/doer/Desktop/gps_denied_ws/vio_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vio_executable.dir/build.make src/CMakeFiles/vio_executable.dir/camera.cpp.s
 .PHONY : camera.cpp.s
 
+logger.o: logger.cpp.o
+.PHONY : logger.o
+
+# target to build an object file
+logger.cpp.o:
+	cd /home/doer/Desktop/gps_denied_ws/vio_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vio_executable.dir/build.make src/CMakeFiles/vio_executable.dir/logger.cpp.o
+.PHONY : logger.cpp.o
+
+logger.i: logger.cpp.i
+.PHONY : logger.i
+
+# target to preprocess a source file
+logger.cpp.i:
+	cd /home/doer/Desktop/gps_denied_ws/vio_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vio_executable.dir/build.make src/CMakeFiles/vio_executable.dir/logger.cpp.i
+.PHONY : logger.cpp.i
+
+logger.s: logger.cpp.s
+.PHONY : logger.s
+
+# target to generate assembly for a file
+logger.cpp.s:
+	cd /home/doer/Desktop/gps_denied_ws/vio_project/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vio_executable.dir/build.make src/CMakeFiles/vio_executable.dir/logger.cpp.s
+.PHONY : logger.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -190,6 +214,9 @@ help:
 	@echo "... camera.o"
 	@echo "... camera.i"
 	@echo "... camera.s"
+	@echo "... logger.o"
+	@echo "... logger.i"
+	@echo "... logger.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
