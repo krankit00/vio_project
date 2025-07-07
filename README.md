@@ -31,7 +31,7 @@ sudo apt install build-essential cmake libopencv-dev libopencv-xfeatures2d-dev l
 
 ### 1. Clone the Repository
 ```bash
-git clone [<your-repository-url>](https://github.com/krankit00/vio_project.git)
+git clone https://github.com/krankit00/vio_project.git
 cd vio_project
 ```
 
