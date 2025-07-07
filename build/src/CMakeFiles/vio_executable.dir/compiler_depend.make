@@ -579,6 +579,7 @@ src/CMakeFiles/vio_executable.dir/logger.cpp.o: /home/doer/Desktop/gps_denied_ws
 
 src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/vio_project/src/main.cpp \
   /home/doer/Desktop/gps_denied_ws/vio_project/src/camera.hpp \
+  /home/doer/Desktop/gps_denied_ws/vio_project/src/logger.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -608,6 +609,7 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
   /usr/include/c++/9/bits/exception.h \
   /usr/include/c++/9/bits/exception_defines.h \
   /usr/include/c++/9/bits/exception_ptr.h \
+  /usr/include/c++/9/bits/fstream.tcc \
   /usr/include/c++/9/bits/functexcept.h \
   /usr/include/c++/9/bits/functional_hash.h \
   /usr/include/c++/9/bits/hash_bytes.h \
@@ -703,6 +705,7 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
   /usr/include/c++/9/ext/numeric_traits.h \
   /usr/include/c++/9/ext/string_conversions.h \
   /usr/include/c++/9/ext/type_traits.h \
+  /usr/include/c++/9/fstream \
   /usr/include/c++/9/functional \
   /usr/include/c++/9/initializer_list \
   /usr/include/c++/9/iomanip \
@@ -829,8 +832,10 @@ src/CMakeFiles/vio_executable.dir/main.cpp.o: /home/doer/Desktop/gps_denied_ws/v
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_base.h \

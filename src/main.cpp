@@ -6,10 +6,15 @@
 // For tracking history
 #include <map>
 #include <deque>
-#include "logger.hpp"
+#include "logger.hpp" // <--- ADDED: Logger header
+#include <chrono>   // <--- ADDED: For timing logger calls
 
 int main() {
     std::cout << "Starting VIO Project - Feature Tracking with Trails" << std::endl;
+
+    // --- ADDED: Initialize Logger ---
+    PerformanceLogger logger("performance_log.csv");
+    auto last_log_time = std::chrono::steady_clock::now();
 
     // Create a Camera object (using default camera index 0)
     Camera cam(0);
@@ -30,25 +35,19 @@ int main() {
     cv::Mat prev_gray_frame_for_sift; // Previous grayscale frame for optical flow
     cv::Mat frame_with_tracks; // Output frame for display
 
-    // --- New data structures for tracking with history ---
-    // A map where: key = unique track ID, value = deque of recent points
     std::map<int, std::deque<cv::Point2f>> track_history;
-    int next_track_id = 0; // Counter for assigning unique IDs to new features
+    int next_track_id = 0; 
 
     // --- Configuration for Tracking and Visualization ---
-    const int max_trail_length = 3; // Number of frames to keep a trail for
-    const int min_feature_distance = 5; // Min pixels between new features and existing ones
-    const int redetection_threshold = max_sift_features / 1; // Redetect if tracked features drop below this
+    const int max_trail_length = 3; 
+    const int min_feature_distance = 5; 
+    const int redetection_threshold = max_sift_features / 10; 
+    const double RANSAC_THRESHOLD = 1.0; // <--- ADDED: RANSAC pixel threshold
 
-    // Target window width for display
     const int max_display_width = 1280;
-
-    // Desired resolution for SIFT processing and optical flow
-
     const int sift_process_width = 640;
     const int sift_process_height = 480;
 
-    // Variables for FPS calculation
     double prev_time = static_cast<double>(cv::getTickCount());
     bool first_frame = true;
 
@@ -57,14 +56,13 @@ int main() {
             break;
         }
 
-        // Grayscale conversion
         if (frame.channels() == 3 || frame.channels() == 4) {
             cv::cvtColor(frame, current_gray_frame, cv::COLOR_BGR2GRAY);
         } else {
             current_gray_frame = frame.clone();
+
         }
 
-        // Resize the grayscale frame for processing
         cv::resize(current_gray_frame, gray_frame_for_sift, cv::Size(sift_process_width, sift_process_height));
 
         // --- Feature Tracking and Redetection Logic ---
@@ -72,43 +70,45 @@ int main() {
             std::vector<cv::Point2f> prev_points, current_points;
             std::vector<int> track_ids;
 
-            // Populate points to track from our history
             for (const auto& pair : track_history) {
-                prev_points.push_back(pair.second.back()); // Get the most recent point
+                prev_points.push_back(pair.second.back());
                 track_ids.push_back(pair.first);
             }
 
-            if (!prev_points.empty()) {
+            if (prev_points.size() > 8) { // Minimum points for RANSAC
                 std::vector<uchar> status;
                 std::vector<float> err;
                 cv::calcOpticalFlowPyrLK(prev_gray_frame_for_sift, gray_frame_for_sift,
                                          prev_points, current_points,
                                          status, err, cv::Size(21, 21), 3);
 
+                // --- ADDED: RANSAC Outlier Rejection ---
+                // This re-uses the status vector. Points that fail optical flow are already
+                // marked as 0. RANSAC will then mark its outliers as 0 as well.
+                cv::findFundamentalMat(prev_points, current_points, cv::FM_RANSAC, RANSAC_THRESHOLD, 0.99, status);
+
+
                 // Update track history with new points and remove lost ones
                 std::map<int, std::deque<cv::Point2f>> updated_track_history;
                 for (size_t i = 0; i < status.size(); ++i) {
-                    if (status[i]) {
+                    if (status[i]) { // Status now contains only optical flow successes AND RANSAC inliers
                         int id = track_ids[i];
                         auto history = track_history[id];
                         history.push_back(current_points[i]);
-                        // Enforce max trail length
                         while (history.size() > max_trail_length) {
                             history.pop_front();
                         }
                         updated_track_history[id] = history;
                     }
                 }
-                track_history = updated_track_history; // Atomically update the history map
-                std::cout << "Tracked features: " << track_history.size() << std::endl;
+                track_history = updated_track_history; 
+                std::cout << "Tracked features (after RANSAC): " << track_history.size() << std::endl;
             }
 
-            // Redetect features if the count is too low
             if (track_history.size() < redetection_threshold) {
                 std::vector<cv::KeyPoint> new_keypoints;
                 sift->detect(gray_frame_for_sift, new_keypoints);
 
-                // Add only new features that are far from existing tracked features
                 int added_count = 0;
                 for (const auto& kp : new_keypoints) {
                     bool is_new = true;
@@ -130,7 +130,6 @@ int main() {
             }
 
         } else {
-            // --- Initial Feature Detection (First Frame) ---
             std::vector<cv::KeyPoint> initial_keypoints;
             sift->detect(gray_frame_for_sift, initial_keypoints);
             for (const auto& kp : initial_keypoints) {
@@ -142,28 +141,22 @@ int main() {
         }
 
         // --- Drawing ---
-        // Prepare a color frame for drawing
         cv::Mat color_for_drawing;
         cv::resize(frame, color_for_drawing, cv::Size(sift_process_width, sift_process_height));
         frame_with_tracks = color_for_drawing.clone();
 
-        // Draw the trails and current feature points
         for (const auto& pair : track_history) {
             const auto& trail = pair.second;
-            // Draw the trail line
             for (size_t i = 1; i < trail.size(); ++i) {
-                cv::line(frame_with_tracks, trail[i - 1], trail[i], cv::Scalar(0, 255, 0), 1); // Green trail
+                cv::line(frame_with_tracks, trail[i - 1], trail[i], cv::Scalar(0, 255, 0), 1);
             }
-            // Draw the current point at the head of the trail
             if (!trail.empty()) {
-                cv::circle(frame_with_tracks, trail.back(), 3, cv::Scalar(255, 0, 0), -1); // Blue circle
+                cv::circle(frame_with_tracks, trail.back(), 3, cv::Scalar(255, 0, 0), -1); 
             }
         }
 
-        // Update the previous frame for the next iteration
         prev_gray_frame_for_sift = gray_frame_for_sift.clone();
 
-        // --- Calculate and display FPS ---
         double current_time = static_cast<double>(cv::getTickCount());
         double fps = cv::getTickFrequency() / (current_time - prev_time);
         prev_time = current_time;
@@ -172,7 +165,13 @@ int main() {
         cv::putText(frame_with_tracks, fps_text, cv::Point(10, 30),
                     cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 255), 2);
 
-        // --- Display the final image ---
+        // --- ADDED: Periodic Logging ---
+        auto now = std::chrono::steady_clock::now();
+        if (std::chrono::duration_cast<std::chrono::seconds>(now - last_log_time).count() >= 1) {
+            logger.log();
+            last_log_time = now;
+        }
+
         double display_aspect_ratio = (double)frame_with_tracks.cols / frame_with_tracks.rows;
         int new_display_width = max_display_width;
         int new_display_height = static_cast<int>(new_display_width / display_aspect_ratio);
